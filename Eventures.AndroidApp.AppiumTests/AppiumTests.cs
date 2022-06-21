@@ -130,8 +130,9 @@ namespace Eventures.AndroidApp.AppiumTests
 
             // Locate the error popup
             var popupBox = this.driver.FindElementById("android:id/message");
-            Assert.IsTrue(popupBox.Text ==
-                "\r\nEmail field is required.\r\nPassword field is required.\r\nConfirm Password field is required.");
+            Assert.IsTrue(popupBox.Text.Contains("Email field is required."));
+            Assert.IsTrue(popupBox.Text.Contains("Password field is required."));
+            Assert.IsTrue(popupBox.Text.Contains("Confirm Password field is required."));
 
             // Locate and click the [Ok] button
             var okBtn = this.driver.FindElementById("android:id/button1");
